@@ -17,7 +17,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function(
     formData.append('archivo', file);
 
     try {
-        const response = await fetch('http://localhost:4000/archivo/upload', {
+        const response = await fetch('https://simat-back-end.onrender.com/archivo/upload', {
             method: 'POST',
             body: formData,
         });
