@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>SIMAT</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="box-main">
+        <div class="header">
+            <div class="header-sub sub-1">
+                <img src="/resources/img/logo_educacio-removebg-preview.png" class="img-logo-educacion" alt="">
+            </div>
+            <div class="header-sub sub-2">
+                <div class="container-txt-secretaria-educacion">
+
+                <span class="span-secretaria-educacion-1">
+                    Secretaria de educacion cultura y deporte
+                </span>
+                <span class="span-secretaria-educacion-2">
+                    Sistema de gestion de SIMAT
+                </span>
+                <span class="span-secretaria-educacion-3">
+                    Palestina 2024
+                </span>
+                </div>
+            </div>
+            <div class="header-sub sub-3">
+                <img src="/resources/img/logo alcalde.png" class="logotipo-alcaldia" alt="">
+            </div>
+        </div>
+        <div class="container-table">  
+
+            <table class="table-main">
+                <thead class="thead-table">
+                        <tr class="thead-tr">
+                            <th class="columna-1" >Microcentro</th>
+                            <th class="columna-1">Intitucion educativa</th>
+                            <th class="columna-1">Nombre del rector</th>
+                            <th class="columna-1">Correo institucional</th>
+                            <th class="columna-1">Telefono</th>
+                            <th class="columna-1">Sedes</th>
+                            <th class="columna-1">Secretaria</th>
+                            <th class="columna-1">Telefono</th>
+                            <th class="columna-1">Total Docentes</th>
+                            <th class="columna-1">Docentes faltantes</th>
+                        </tr>
+                </thead>
+
+                <tbody class="tbody-table">
+                    <tr class="tbody-td">
+                        <td class=" lista-desplegable-instituciones">
+                            <div class="container-select-instituciones">
+                                <label for="Intituciones">
+                                    <select name="" id="select-instituciones"  class="container-select">
+                                        <option value="">Seleccionar una opcion</option>
+                                        <!-- <option value="Buenos Aires">Buenos Aires</option>
+                                        <option value="El Roble">El Roble</option>
+                                        <option value="La Esperanza">La Esperanza</option>
+                                        <option value="Palestina">Palestina</option>
+                                        <option value="Quebradon">Quebradon</option> -->
+                                    </select>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="columna-2">Lorem.</td>
+                        <td class="columna-2">Lorem.</td>
+                        <td class="columna-2">Lorem.</td>
+                        <td class="columna-2">Lorem.</td>
+                        <td class="columna-2">Lorem.</td>
+                        <td class="columna-2">Lorem.</td>
+                        <td class="columna-2">Lorem.</td>
+                        <td class="columna-2">Lorem.</td>
+                        <td class="columna-2">Lorem.</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="container-table-2">
+            <table class="table-main">
+                <thead class="thead-table">
+                        <tr class="thead-tr">
+                            <th class="columna-1" >Microcentro</th>
+                        </tr>
+                </thead>
+
+                <tbody class="tbody-table">
+                    <tr class="tbody-td">
+                        <td class="container-input-date">
+                            <input type="date" class="input-date">
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <div class="container-descarga">
+                <button id="dowloan-btn" class="btn-descarguar" >Descargar </button>
+                <button id="indice-btn" class="btn-descarguar" >Indice</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        const Api = axios.create({
+            baseURL: 'https://simat-back-end.onrender.com/'
+        });
+        
+        const listarInstituciones = async () => {
+    try {
+        const response = await Api.get('instituciones/listar');
+        const instituciones = response.data;
+        const selectInstituciones = document.getElementById('select-instituciones');
+
+        // Limpiar el contenido existente
+        selectInstituciones.innerHTML = '';
+
+        // Agregar la opción inicial
+        const optionInicial = document.createElement('option');
+        optionInicial.value = ''; // Deja el valor vacío para que no sea una opción seleccionable válida
+        optionInicial.textContent = 'Seleccione una opción';
+        optionInicial.disabled = true; // Evita que la opción sea seleccionable
+        optionInicial.selected = true; // La selecciona por defecto
+        selectInstituciones.appendChild(optionInicial); 
+
+        // Agregar las demás opciones
+        instituciones.forEach(institucion => {
+            const option = document.createElement('option');
+            option.value = institucion.institucion;
+
+            // Recortar el texto de la institución si es necesario
+            const textoRecortado = institucion.institucion.substring(21);
+            option.textContent = textoRecortado;
+            selectInstituciones.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error al listar instituciones:', error);
+    }
+};
+
+        document.addEventListener('DOMContentLoaded', listarInstituciones);
+
+    </script>
+    <script src="/js/listarSedes.js"></script>
+    <script src="/js/indicePoblacional.js"></script>
+
+    <!-- <script type="module" src="/exel/exel.js"></script> -->
+
+</body>
+</html>
