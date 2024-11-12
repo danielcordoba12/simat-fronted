@@ -21,19 +21,20 @@ document.getElementById('uploadForm').addEventListener('submit', async function(
             body: formData,
         });
     
-        // Verificar si la respuesta fue exitosa (status 200-299)
         if (response.ok) {
             const result = await response.text();
             document.getElementById('statusMessage').textContent = result;
         } else {
-            // Si la respuesta no es exitosa, mostrar el código de estado
             console.error('Error en la respuesta:', response.status, response.statusText);
-            const result = await response.text();
-            document.getElementById('statusMessage').textContent = `Hubo un error al subir el archivo: ${result}`;
+    
+            const errorResult = await response.text();
+            console.error('Respuesta de error del servidor:', errorResult);
+    
+            document.getElementById('statusMessage').textContent = `Hubo un error al subir el archivo: ${errorResult}`;
         }
     } catch (error) {
-        // Capturar errores de la red (por ejemplo, problemas de conexión)
         console.error('Error de red o problemas con fetch:', error);
         document.getElementById('statusMessage').textContent = 'Error al enviar la solicitud. Verifica la consola para más detalles.';
     }
+    
 });
