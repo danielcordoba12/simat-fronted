@@ -42,7 +42,7 @@
         }
 
         try {
-            const response = await axios.get(`https://simat-back-end.onrender.com//sedes/listar/${institucionSeleccionada}`);
+            const response = await axios.get(`https://simat-back-end.onrender.com/sedes/listar/${institucionSeleccionada}`);
             // console.log("esta es la respuesta xd", response.data);
             
             const sedes = response.data;
@@ -64,7 +64,7 @@
     
         for (let i = 0; i < sedes.length; i++) {
             try {
-                const response = await axios.get(`https://simat-back-end.onrender.com//sedes/sedes/${sedes[i].SEDE}`);
+                const response = await axios.get(`https://simat-back-end.onrender.com/sedes/sedes/${sedes[i].SEDE}`);
                 infoSedes.push(response.data);  // Guardar los datos en infoSedes
                 console.log(`Información de la sede ${sedes[i].SEDE} añadida a infoSedes.`);
                 console.log("infosedes",infoSedes);
