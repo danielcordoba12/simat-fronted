@@ -1,0 +1,274 @@
+/* *{
+    margin: 0;
+    padding: none;
+}
+.box-main{
+    background-color: red;
+    width: 100%;
+    height: 100vh;
+}
+.header{
+    background-color: aqua;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.header-sub{
+    background-color: aliceblue;
+    width: 33%;
+    height: 100%;
+
+
+}
+.sub-1,.sub-3{
+    background-color: firebrick;
+    width: 20%;
+}
+.sub-2{
+    background-color: rgb(48, 34, 178);
+    width: 55%;
+}
+
+
+/* /////////////////////////////////CSS tabla//////////////////////////////////////////
+
+.container-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(127, 255, 133);
+    flex-direction: row;
+    width: 100%
+}
+.table-main, .columna-1, .columna-2{
+    border: 1px solid black;
+    border-collapse: collapse;
+} */
+
+/* Reset de márgenes y padding */
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos generales */
+.box-main {
+    width: 100%;
+    height: 100vh;
+}
+
+.header {
+    border: 2px solid rgb(0,32,96);
+    width: 99.7%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-sub {
+    width: 33%;
+    height: 100%;
+}
+
+.sub-1{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.img-logo-educacion{
+    height: 200px;
+}
+
+.sub-2 {
+    width: 55%;
+}
+
+.container-txt-secretaria-educacion{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+.container-txt-secretaria-educacion > *{
+    font-size: 28px;
+    color: rgb(0,32,96) ;
+    font-weight: 900;
+
+
+}
+.sub-3{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+
+}
+
+.logotipo-alcaldia{
+    height: 170px;
+}
+/* Estilos de la tabla */
+.container-table {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column; /* Organiza la tabla verticalmente */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.table-main {
+    display: flex;
+    flex-direction: row; /* Filas se vuelven columnas */
+    align-items: center;
+    justify-content: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-main > * {
+    display: flex;
+    flex-direction: column;
+}
+
+.thead-table, .tbody-table {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+
+}
+
+.thead-table {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(0,32,96);
+}
+.thead-tr{
+    width: 100%;
+}
+.columna-1, .columna-2  {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: start;
+    /* background-color: yellow; */
+    /* width: 100%; */
+
+}
+.columna-1{
+    color: white;
+}
+
+.tbody-table {
+    display: flex;
+    flex-direction: row;
+}
+
+.lista-desplegable-instituciones{
+
+    border: 1px solid black;
+    height: 34px;
+    text-align: start;
+}
+.container-select{
+    /* background-color: aqua; */
+    /* display: flex; */
+    width: 100%;
+    height:100%;
+}
+
+.container-select:focus, .container-select:hover{
+    outline: none;
+    border-color: none;
+    border: none;
+}
+
+.lista-desplegable-instituciones label{
+    height: 100px;
+    padding: -8px;
+    width: 100px;
+}
+
+.container-select-instituciones{
+    height: 100%; 
+    width: 100%;
+    
+}
+
+.tbody-table tr {
+    display: flex;
+    flex-direction: column;
+}
+
+.tbody-td{
+    width: 100%;
+}
+.table-main tr {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Opcional: Agrega espacio entre filas de la tabla */
+/* .table-main th, .table-main td {
+    margin-bottom: 4px;
+} */
+
+
+.container-table-2{
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-color: 2px solid black;
+    /* background-color: rebeccapurple; */
+}
+
+.container-descarga{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 49.9%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 45px;
+    /* background-color: red; */
+}
+
+.container-input-date{
+    border: 1px solid black;
+    height: 34px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+
+}
+.input-date{
+    text-align: center  ;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-descarguar{
+    background-color: rgb(0,32,96);
+    color:  white;
+    border: none;
+    height: 30px;
+    width: 85px;
+    border-radius: 12px;
+}
